@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 class Articles extends Controller{
 	

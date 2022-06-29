@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 abstract class Controller{
 	
@@ -7,8 +7,9 @@ abstract class Controller{
         $this->$model = new $model();
 	}
 
-	public function render(string $file, array $data = []){
+	public function render(string $file, array $data = [], array $data2 = []){
 		extract($data);
+		extract($data2);
 		ob_start();
 		require_once(ROOT.'views/' . strtolower(get_class($this)) . '/' . $file . '.php');
 		$content = ob_get_clean();

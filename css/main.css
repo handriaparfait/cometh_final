@@ -1,0 +1,98 @@
+body {
+    background-image: linear-gradient(135deg, #ebebeb 10%, #FFFFFF 100%);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    font-family: "Open Sans", sans-serif;
+    color: #333333;
+    margin-top: 90px;
+    margin-left: 10%;
+}
+
+.card img {
+    width: 25%;
+    border-radius: 15px;
+    margin: 3%;
+    border: 5px solid #c1c1c1;
+}
+
+.card p.horaires {
+    padding-left: 30px;
+    padding-right: 30px;
+    background-color: #fff0b8;
+    border-radius: 15px;
+    width: fit-content;
+}
+
+.card p.fonction {
+    background-color: #b4d5ff;
+    border-radius: 5px;
+    padding-left: 10px;
+}
+
+.card p.planmonth {
+    background-color: #f5acac;
+    border-radius: 5px;
+    padding-left: 10px;
+}
+
+.card p.planmonth2 {
+    background-color: #c7acf5;
+    border-radius: 5px;
+    padding-left: 10px;
+}
+
+.card p.planmonth3 {
+    background-color: #b3f5ac;
+    border-radius: 5px;
+    padding-left: 10px;
+}
+
+.card p.currentplan {
+    background-color: #beff94;
+    border-radius: 5px;
+    padding-left: 10px;
+}
+
+
+.card h4 {
+    font-size: 20px;
+}
+
+.card {
+    /* Add shadows to create the "card" effect */
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 500px;
+    border-radius: 15px;
+    padding-bottom: 15px;
+    background-color: #ececec;
+}
+
+.listPlans {
+    padding-left: 30px;
+    padding-right: 30px;
+    background-color: #ffffff;
+    border-radius: 15px;
+    margin-top: 10px;
+    padding-top: 20px;
+    list-style-type: square;
+}
+
+
+.subListPlan {
+    font-style: italic;
+    font-size : 12px;
+    margin-left : 30px;
+    margin-top : 5px;
+}
+/* On mouse-over, add a deeper shadow */
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+/* Add some padding inside the card container */
+.container {
+    padding: 2px 16px;
+}
+

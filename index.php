@@ -7,6 +7,7 @@ require_once(ROOT.'app/Model.php');
 require_once(ROOT.'app/Controller.php');
 
 //on sépare les paramètres
+session_start();
 $params = explode('/', $_GET['p']);
 
 if($params[0] != ""){

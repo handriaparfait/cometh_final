@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 abstract class Model{
 	
@@ -39,7 +39,6 @@ abstract class Model{
 		$query->execute();
 		return $query->fetch();
 	}
-
 }
 
 ?>

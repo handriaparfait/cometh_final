@@ -1,14 +1,13 @@
 function login(username, password) {
-    alert(username + " " + password);
-    $.ajax({
-        type: 'GET',
+    //alert(username + " " + password);
+    jQuery.ajax({
         url: 'Logins/login/' + username + '/' + password,
-        dataType: 'json',
-        complete: function (xhr) {
-            if (xhr.status == 200)
-                self.location.href = "users";
-            else if (xhr.status == 401)
-                alert("Connexion error !");
+        contentType: 'application/json',
+        success: function (response) {
+            self.location.href = "users";
+        },
+        error: function (xhr) {
+            alert("Mot de passe ou identifiant invalide");
         }
     });
 }

@@ -1,12 +1,13 @@
-﻿<?php
+<?php
 
 class Users extends Controller{
+	public $users;
 	
 	public function index(){
 		$this->loadModel("User");
-		$users = $this->User->getAll();
-		//$this->render('index', ['articles' => $articles]);
-		$this->render('index', compact('users'));
+		$users = $this->User->getInformation();
+		$plannings = $this->User->getPlanning();
+		$this->render('index', compact('users'), compact('plannings'));
 	}
 }
 
