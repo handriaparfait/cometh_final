@@ -16,3 +16,46 @@ function menuBtnChange() {
         document.getElementsByTagName('body')[0].style.marginLeft = "5%";
     }
 }
+
+function startPlanning(idp) {
+    jQuery.ajax({
+        url: 'Users/startPlanning/' + idp,
+        contentType: 'application/json',
+        success: function (response) {
+            alert("Planning commencé");
+            
+            /*Disable all other button*/
+            const buttons = document.querySelectorAll(".buttonStartPlan");
+            buttons.forEach(btn => btn.style.display = "none");
+        },
+        error: function (xhr) {
+            alert("Erreur commencement planning");
+        }
+    });
+}
+
+function uploadPdf(id, idpl) {
+    var formData = new FormData();
+    formData.append("file", document.forms['form-upload-' + id + "-" + idpl]['file-upload-' + id + "-" + idpl].files[0]);
+    jQuery.ajax({
+        type: "POST",
+        url: 'Users/uploadPdf/' + id + '/' + idpl,
+        contentType: false,
+        processData: false,
+        data: formData,
+        success: function (response) {
+            alert("Mis à jour réussie");
+        },
+        error: function (xhr) {
+            alert("Erreur de chargement du document PDF");
+        }
+    });
+}
+
+function downloadPdf(id, idpdf) {
+    window.open("Users/downloadPdf/" + id + "/" + idpdf);
+}
+
+
+
+

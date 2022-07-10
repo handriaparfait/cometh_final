@@ -13,7 +13,8 @@
 		<div class="overlay">
 		<h1>Cometh</h1>	<h2>sasu</h2>
 		<p>Outils de gestion des projets de Cometh SASU.&copy;</p>
-		<!--<span>
+		<!--
+		<span>
 			<p>login with social media</p>
 			<a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
 			<a href="#"><i class="fa fa-twitter" aria-hidden="true"></i> Login with Twitter</a>

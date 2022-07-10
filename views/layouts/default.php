@@ -2,6 +2,7 @@
 <link rel="stylesheet" href="css/navlateral.css">
 <link rel="stylesheet" href="font-awesome/css/all.css">
 <link rel="stylesheet" href="font-awesome/css/all.min.css">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
 <header>
   <div class="sidebar">
@@ -18,6 +19,13 @@
         </a>
          <span class="tooltip">Planning</span>
       </li>
+      <li>
+       <a href="#">
+         <i class='fas fa-file-invoice' ></i>
+         <span class="links_name">Facture</span>
+       </a>
+       <span class="tooltip">Facture</span>
+     </li>
       <li>
        <a href="#">
          <i class='fas fa-money-bill-alt' ></i>
@@ -38,13 +46,6 @@
          <span class="links_name">Messagerie</span>
        </a>
        <span class="tooltip">Messagerie</span>
-     </li>
-     <li>
-       <a href="#">
-         <i class='fas fa-cog' ></i>
-         <span class="links_name">Paramètres</span>
-       </a>
-       <span class="tooltip">Paramètres</span>
      </li>
      <li>
        <a href="#">
@@ -82,7 +83,7 @@
   <script src="js/user.js"></script>
 </header>
 
-<main style="display:flex;justify-content: space-evenly;">
+<main style="display:inline-flex;justify-content: space-evenly;">
 
 	<?= $content ?>
 
