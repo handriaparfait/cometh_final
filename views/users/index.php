@@ -47,8 +47,7 @@
     }
 
     function currentPlanText($plan){
-        if($plan == "false") return "Commencer";
-        else if($plan[0]->{"ispaused"} == 1) return "Reprendre";
+        if($plan == "1") return "Reprendre";
         else return "Commencer";
     }
 
@@ -75,6 +74,11 @@
         else if($level == "LB") return "Libre";
     }
 
+    function boxchecked($status){
+        if($status == "1") return "checked";
+        else return "";
+    }
+
 
 
 ?>
@@ -86,12 +90,31 @@
 
 <div class="card infouser">
 
-  <div class="container">
+  <!--CHANGE USER INFO-->
+  <div class="container user-change">
+    <br>
+    <h4><b>
+        <p class="retour-info-user" onclick="javascript:hideFormUser('user-change','user-info','infouser')">
+            <i class='fas fa-angle-left' ></i>
+            <?php echo "&nbsp Retour"; ?>
+        </p>
+        <button class="buttonPlan buttonsaveinfo buttongreen"> Enregistrer <i class='fas fa-save'> </i></button>
+    </b></h4>
+        <div class="form-change-info">
+            <p>Pseudo</p><input type="text" class="input-user-mail" name="n-input-user-mail"> 
+            <br>
+            <p>Email</p><input type="text" class="input-user-mail" name="n-input-user-mail"> 
+        </div>
+        <br>
+  </div>
+  <!--END USER INFO-->
+
+  <div class="container user-info">
   <br>
     <h4><b>
         <i class='fas fa-user' ></i>
         <?php echo "&nbsp Informations"; ?>
-        <button class="buttonPlan buttonchangeinfo buttongreen"> Modifier <i class='fas fa-edit'> </i></button>
+        <button class="buttonPlan buttonchangeinfo buttongreen" onclick="javascript:showFormUser('user-info','user-change','infouser')"> Modifier <i class='fas fa-edit'> </i></button>
         <br>
     </b></h4>
   <img src="images/profile.jpg" alt="Avatar">
@@ -126,16 +149,40 @@
             <?php } ?>
         </p>
   </div>
+  <br> 
 </div>
 
 
+
 <div class="card planning">
-  <div class="container">
+
+ <!-- ADD PLANNING -->
+  <div class="container planning-add">
+    <br>
+    <h4><b>
+        <p class="retour-info-user" onclick="javascript:hideFormUser('planning-add','planning-list','planning')">
+            <i class='fas fa-angle-left' ></i>
+            <?php echo "&nbsp Retour"; ?>
+        </p>
+        <button class="buttonPlan buttonsaveinfo buttongreen"> Enregistrer <i class='fas fa-save'> </i></button>
+    </b></h4>
+        <div class="form-change-info">
+            <p>Nom planning</p><input type="text" class="input-user-mail" name="n-input-user-mail"> 
+            <br>
+            <p>Lieu du plan</p><input type="text" class="input-user-mail" name="n-input-user-mail"> 
+            <br>
+            <p>Date de fin</p><input type="text" class="input-user-mail" name="n-input-user-mail"> 
+        </div>
+        <br>
+  </div>
+  <!-- END ADD PLANNING-->
+
+  <div class="container planning-list">
   <br>
     <h4><b>
         <i class='far fa-calendar fa-lg' ></i>
         <?php echo "Les plannings" ?>
-        <button class="buttonPlan buttonaddplanning buttongreen"> Ajouter <i class='fas fa-plus'> </i></button>
+        <button class="buttonPlan buttonaddplanning buttongreen" onclick="javascript:showFormUser('planning-list','planning-add','planning')"> Ajouter <i class='fas fa-plus'> </i></button>
         <br></b></h4>
         
         <b><h4>
@@ -177,9 +224,10 @@
                 </label>
                 <input  id="file-upload-3-<?php echo ($planning->{'plan_id'}) ?>" type="file" accept="application/pdf" onchange="javascript:uploadPdf('3',<?php echo ($planning->{'plan_id'}) ?>)"/>
                 </form>
+                </form>
 
                 <!--COMMENCER-->
-                <button class="<?php echo currentPlanClass(($users[0]->{'current_plan'}), ($planning->{'plan_id'}), $currentplanning) ?>" role="button" onclick="javascript:startPlanning(<?php echo ($planning->{'plan_id'}) ?>)" <?php echo buttonDisabled(($planning->{'plan_id'}),($currentplanning),($currentplanning)) ?>> <?php echo currentPlanText($currentplanning) ?> </button >
+                <button class="<?php echo currentPlanClass(($users[0]->{'current_plan'}), ($planning->{'plan_id'}), $currentplanning) ?>" role="button" onclick="javascript:startPlanning(<?php echo ($planning->{'plan_id'}) ?>)" <?php echo buttonDisabled(($planning->{'plan_id'}),($currentplanning),($currentplanning)) ?>> <?php echo currentPlanText($planning->{"ispaused"}) ?> </button >
                 <ul class="subListPlan">
                     <?php echo date('m-Y',strtotime($planning->{'plan_date'})) . " à " . ($planning->{'plan_adresse'}) ?>
                 </ul>
@@ -203,7 +251,7 @@
         <ul class="listTask">
             <?php foreach($tasks as $task){ ?>
                 <li>
-                    <input type="checkbox" id="tsk-<?php echo $task->{"task_id"} ?>">
+                    <input type="checkbox" onchange="javascript:submit(<?php echo $task->{"task_id"} ?>,this.checked)" <?php echo boxchecked($task->{"isdone"}) ?>>
                     <label class="<?php echo taskClass($task->{"task_level"}) ?> tasklabel">
                     <?php echo taskLevelName($task->{"task_level"}) ?>
                     </label>
@@ -220,7 +268,10 @@
     <h4><b>
         <i class='fas fa-money-bill-alt' ></i>
         <?php echo "&nbsp Comptabilité"; ?>
-        <button class="buttonPlan buttonaddspent buttongreen"> Dépense <i class='fas fa-plus'> </i></button>
+        <div class="buttons-compta">
+            <button class="buttonPlan buttonaddspent buttongreen"> Crédit <i class='fas fa-minus'> </i></button>
+            <button class="buttonPlan buttonadddebit buttongreen"> Débit <i class='fas fa-plus'> </i></button>
+        </div>
         <p>
             Solde : 3,000,00 €
         </p>

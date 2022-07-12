@@ -107,11 +107,11 @@ values
 insert into tasks(task_name,task_level)
 values 
     ('dessiner un pic pour le 06/22','PR'),
-    ('changer de e-mail','PR'),
+    ('changer de e-mail','LB'),
     ('changer de profil','PR'),
-    ('ajouter dépense 2022','PR'),
+    ('ajouter dépense 2022','AF'),
     ('test test test test ','PR'),
-    ('telecharger une nouvelle facture','PR')
+    ('telecharger une nouvelle facture','LB')
 ;
 
 insert into task_users(task_id,user_id)

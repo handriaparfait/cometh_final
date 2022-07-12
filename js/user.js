@@ -68,6 +68,29 @@ function endPlanning(idp) {
     });
 }
 
+function submit(idtask, status) {
+    jQuery.ajax({
+        url: 'Users/submit/' + idtask + "/" + status,
+        contentType: 'application/json',
+        success: function (response) {
+            //self.location.reload();
+        },
+        error: function (xhr) {
+            alert("Erreur commencement planning");
+        }
+    });
+}
+
+function showFormUser(firstClass,secondClass,cardClass) {
+    document.getElementsByClassName(firstClass)[0].style.display = "none"; document.getElementsByClassName(secondClass)[0].style.display = "block";
+    document.getElementsByClassName(cardClass)[0].style.backgroundColor = "rgba(122, 255, 225, 0.39)"; document.getElementsByClassName(cardClass)[0].style.transition = "all 3s";
+}
+
+function hideFormUser(firstClass,secondClass,cardClass) {
+    document.getElementsByClassName(secondClass)[0].style.display = "block"; document.getElementsByClassName(firstClass)[0].style.display = "none";
+    document.getElementsByClassName(cardClass)[0].style.backgroundColor = "white"; document.getElementsByClassName(cardClass)[0].style.transition = "all 3s";
+}
+
 function uploadPdf(id, idpl) {
     var formData = new FormData();
     formData.append("file", document.forms['form-upload-' + id + "-" + idpl]['file-upload-' + id + "-" + idpl].files[0]);

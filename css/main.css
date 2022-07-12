@@ -125,7 +125,7 @@ body {
 .listTask input[type="checkbox"]:checked  {
     width: 25px;
     height: 20px;
-    accent-color: #5dea65;
+    accent-color: #ffc766;
 }
 
 .card label.tasklabel {
@@ -134,6 +134,8 @@ body {
     margin-right: 10px;
     margin-left: 10px;
 }
+
+
 
 .prioritaire {
     background-color: #f5acac;
@@ -240,6 +242,10 @@ form {
     margin-left: 192px;
 }
 
+.buttonsaveinfo {
+    margin-left: 252px;
+}
+
 .buttonaddplanning {
     margin-left: 188px;
 }
@@ -248,6 +254,34 @@ form {
     margin-left: 245px;
 }
 
-.buttonaddspent {
-    margin-left: 185px;
+.buttons-compta {
+    margin-left: 83px;
+    display: inline;
+}
+
+.form-change-info{
+    margin-top: 25px;
+}
+
+.input-user-mail {
+    display: block;
+    width: 100%;
+    padding: 8px 16px;
+    border-radius: 6px;
+    border: 1px solid #a9a9a9;
+    transition: border .3s ease;
+    font-size: medium;
+}
+
+.user-change{
+    display: none;
+}
+
+.retour-info-user {
+    display: inline;
+    cursor: pointer;
+}
+
+.planning-add{
+    display: none;
 }

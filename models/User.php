@@ -49,7 +49,7 @@ class User extends Model{
 	public function pausePlanning($idp){
 		$sql =  "update planning set ispaused = 1 where plan_id = '". $idp ."'; ";
 		$sql .= "update planning set plan_end = NOW() where plan_id = '" . $idp . "'; ";
-		$sql .= "update planning_users plu inner join planning pl on plu.plan_id = pl.plan_id set total_hour = (timediff(pl.plan_end,pl.plan_start)) where plu.plan_id = '". $idp ."';";
+		$sql .= "update planning_users plu inner join planning pl on plu.plan_id = pl.plan_id set total_hour = total_hour + (timediff(pl.plan_end,pl.plan_start)) where plu.plan_id = '". $idp ."';";
 		$query = $this->_connexion->prepare($sql);
 		$query->execute();
 		if ($query->rowCount() > 0) return "true";
@@ -78,6 +78,18 @@ class User extends Model{
         else return "false";
 	}
 
+	public function submit($idtask,$status){
+		$sql = "";
+		if($status == "true")
+			$sql = "update tasks set isdone = 1 where task_id = '". $idtask ."';";
+		else if($status == "false")
+			$sql = "update tasks set isdone = 0 where task_id = '". $idtask ."';";
+		$query = $this->_connexion->prepare($sql);
+		$query->execute();
+		if ($query->rowCount() > 0) return "true";
+        else return "false";
+	}
+
 	public function downloadPdf($idpd,$idpl){
 		$sql = "select pdf".$idpd." from planning where plan_id = '". $idpl ."'";
 		$query = $this->_connexion->prepare($sql);
@@ -85,6 +97,8 @@ class User extends Model{
 		if ($query->rowCount() > 0) return $query->fetchall(PDO::FETCH_OBJ);
         else return "false";
 	}
+
+
 
 }
  

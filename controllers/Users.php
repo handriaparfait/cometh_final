@@ -55,7 +55,6 @@ class Users extends Controller{
 	}
 
 
-
 	public function uploadPdf($id,$idpdf){
 		$this->loadModel("User");
 		$answer = $this->User->uploadPdf($id,$idpdf,file_get_contents($_FILES["file"]["tmp_name"]),$_FILES["file"]["name"]);
@@ -75,6 +74,19 @@ class Users extends Controller{
 		header('Content-Type: application/pdf');
 		if($answer == "false") echo "Erreur de chargement du document PDF";
 		else echo ($answer[0]->{"pdf".$id});
+	}
+
+	public function submit($idtask,$status){
+		$this->loadModel("User");
+		$answer = $this->User->submit($idtask,$status);
+		header('Content-Type: application/pdf');
+		if($answer == "true"){
+			http_response_code(200);
+			echo json_encode(["response_code" => 200]);
+		}else{
+			http_response_code(401);
+			echo json_encode(["response_code" => 401]);
+		}
 	}
 
 }
