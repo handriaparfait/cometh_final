@@ -18,7 +18,7 @@ abstract class Model{
 	public function getConnection(){
 		$this->_connexion = null;
 		try{
-			$this->_connexion = new PDO('mysql:host='. $this->host . '; dbname='. $this->db_name, $this->username, $this->password);
+			$this->_connexion = new PDO('mysql:host='. $this->host . '; dbname='. $this->db_name, $this->username, $this->password,array(PDO::MYSQL_ATTR_FOUND_ROWS => true));
 			$this->_connexion->exec('set names utf8');
 		}
 		catch(PDOException $exception){

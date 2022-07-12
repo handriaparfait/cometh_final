@@ -1,5 +1,5 @@
 body {
-    background-image: linear-gradient(135deg, #ebebeb 10%, #FFFFFF 100%);
+    background-image: linear-gradient(186deg, #ebebeb 10%, #ffffff 100%);
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -52,15 +52,18 @@ body {
 }
 
 .card p.currentplan {
-    background-color: #beff94;
+    background-color: #b6fde0;
     border-radius: 5px;
     padding-left: 10px;
+    padding-bottom: 10px;
+    padding-top: 10px;
 }
 
 
 .card h4 {
     font-size: 20px;
 }
+
 
 .card {
     /* Add shadows to create the "card" effect */
@@ -69,18 +72,79 @@ body {
     width: 500px;
     border-radius: 15px;
     padding-bottom: 15px;
-    background-color: #ececec;
+    background-color: #ffffff;
+    margin-bottom: auto;
+    min-height: 540px;
 }
 
+
+
+.compta p {
+    background-color: #c1fe9e;
+    border-radius: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align-last: center;
+    margin-top: 25px;
+}
+
+.infouser {
+    background-color: #ffffff;
+}
+
+
 .planning {
-    /* Add shadows to create the "card" effect */
     margin-left : 25px;
 }
 
 .task {
-    /* Add shadows to create the "card" effect */
     margin-left: 25px;
-    background-color: #d1cbfe;
+    background-color: #ffffff;
+}
+
+.compta {
+    margin-left: 25px;
+    background-color: #ffffff;
+}
+
+.listTask{
+    margin-top: 25px;
+}
+
+.listTask li{
+    margin-top: 20px;
+    list-style:none;
+}
+
+
+.listTask input[type="checkbox"]  {
+    width: 20px;
+    height: 20px;
+}
+
+.listTask input[type="checkbox"]:checked  {
+    width: 25px;
+    height: 20px;
+    accent-color: #5dea65;
+}
+
+.card label.tasklabel {
+    border-radius: 5px;
+    padding-left: 10px;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.prioritaire {
+    background-color: #f5acac;
+}
+
+.afaire {
+    background-color: #ffd6a9;
+}
+
+.libre {
+    background-color: #a6fbb6;
 }
 
 
@@ -89,7 +153,6 @@ body {
     padding-right: 30px;
     background-color: #ffffff;
     border-radius: 15px;
-    margin-top: 10px;
     padding-top: 20px;
     list-style-type: square;
 }
@@ -110,9 +173,11 @@ body {
     padding: 2px 16px;
 }
 
-.buttonStartPlan {
+
+
+.buttonPlan {
     appearance: none;
-    background-color: #e45151;
+    background-color: #338fd7;
     border: 1px solid rgba(27, 31, 35, .15);
     border-radius: 6px;
     box-shadow: rgba(27, 31, 35, .1) 0 1px 4px;
@@ -133,33 +198,20 @@ body {
     touch-action: manipulation;
     vertical-align: middle;
     white-space: nowrap;
-    margin-left: 10px;
+    margin-left: 15px;
 }
 
-.buttonBlockedPlan {
-    appearance: none;
-    background-color: #e0e0e0;
-    border: 1px solid rgba(255, 255, 255, .15);
-    border-radius: 6px;
-    box-shadow: rgba(27, 31, 35, .1) 0 1px 4px;
-    box-sizing: border-box;
-    color: #fff;
+.blocked {
+    background-color: #338fd736;
+    /*background: repeating-linear-gradient( -55deg, #d4d4d4, #d4d4d4 10px, #fff 10px, #fff 20px );*/
     cursor: not-allowed;
-    display: inline-block;
-    font-family: -apple-system,system-ui,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";
-    font-size: 14px;
-    font-weight: 600;
-    line-height: 20px;
-    padding: 6px 16px;
-    position: relative;
-    text-align: center;
-    text-decoration: none;
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: manipulation;
-    vertical-align: middle;
-    white-space: nowrap;
-    margin-left: 10px;
+}
+
+.pause {
+    background-color: #ff8338;
+}
+
+.end {
 }
 
 input[type="file"] {
@@ -178,4 +230,24 @@ form {
 
 .fa-file-pdf {
     cursor: pointer;
+}
+
+.buttongreen {
+    background: #57d733;
+}
+
+.buttonchangeinfo {
+    margin-left: 192px;
+}
+
+.buttonaddplanning {
+    margin-left: 188px;
+}
+
+.buttonaddtask {
+    margin-left: 245px;
+}
+
+.buttonaddspent {
+    margin-left: 185px;
 }

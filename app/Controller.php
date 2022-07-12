@@ -7,9 +7,11 @@ abstract class Controller{
         $this->$model = new $model();
 	}
 
-	public function render(string $file, array $data = [], array $data2 = []){
+	public function render(string $file, array $data = [], array $data2 = [], array $data3 = [], array $data4 =[]){
 		extract($data);
 		extract($data2);
+		extract($data3);
+		extract($data4);
 		ob_start();
 		require_once(ROOT.'views/' . strtolower(get_class($this)) . '/' . $file . '.php');
 		$content = ob_get_clean();

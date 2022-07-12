@@ -7,8 +7,9 @@ class Users extends Controller{
 		$this->loadModel("User");
 		$users = $this->User->getInformation();
 		$plannings = $this->User->getPlanning();
-		$current_planning = "";
-		$this->render('index', compact('users'), compact('plannings'));
+		$currentplanning = $this->User->getCurrentPlanning();
+		$tasks = $this->User->getTasks();
+		$this->render('index', compact('users'), compact('plannings'), compact("currentplanning"), compact("tasks"));
 	}
 
 	public function startPlanning($idp){
@@ -24,6 +25,36 @@ class Users extends Controller{
 			echo json_encode(["response_code" => 401]);
 		}
 	}
+
+	public function pausePlanning($idp){
+		$this->loadModel("User");
+		$plans = $this->User->pausePlanning($idp);
+		header('Content-Type: application/json');
+		if($plans == "true"){
+			http_response_code(200);
+			echo json_encode(["response_code" => 200]);
+		}
+		else{
+			http_response_code(401);
+			echo json_encode(["response_code" => 401]);
+		}
+	}
+
+	public function endPlanning($idp){
+		$this->loadModel("User");
+		$plans = $this->User->endPlanning($idp);
+		header('Content-Type: application/json');
+		if($plans == "true"){
+			http_response_code(200);
+			echo json_encode(["response_code" => 200]);
+		}
+		else{
+			http_response_code(401);
+			echo json_encode(["response_code" => 401]);
+		}
+	}
+
+
 
 	public function uploadPdf($id,$idpdf){
 		$this->loadModel("User");
@@ -45,6 +76,7 @@ class Users extends Controller{
 		if($answer == "false") echo "Erreur de chargement du document PDF";
 		else echo ($answer[0]->{"pdf".$id});
 	}
+
 }
 
 ?>

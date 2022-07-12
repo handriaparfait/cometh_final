@@ -22,8 +22,42 @@ function startPlanning(idp) {
         url: 'Users/startPlanning/' + idp,
         contentType: 'application/json',
         success: function (response) {
-            alert("Planning commencé");
-            
+            //alert("Planning commencé");
+            self.location.reload();
+            /*Disable all other button*/
+            const buttons = document.querySelectorAll(".buttonStartPlan");
+            buttons.forEach(btn => btn.style.display = "none");
+        },
+        error: function (xhr) {
+            alert("Erreur commencement planning");
+        }
+    });
+}
+
+function pausePlanning(idp) {
+    jQuery.ajax({
+        url: 'Users/pausePlanning/' + idp,
+        contentType: 'application/json',
+        success: function (response) {
+            //alert("Planning en pause");
+            self.location.reload();
+            /*Disable all other button*/
+            const buttons = document.querySelectorAll(".buttonStartPlan");
+            buttons.forEach(btn => btn.style.display = "none");
+        },
+        error: function (xhr) {
+            alert("Erreur commencement planning");
+        }
+    });
+}
+
+function endPlanning(idp) {
+    jQuery.ajax({
+        url: 'Users/endPlanning/' + idp,
+        contentType: 'application/json',
+        success: function (response) {
+            //alert("Planning en pause");
+            self.location.reload();
             /*Disable all other button*/
             const buttons = document.querySelectorAll(".buttonStartPlan");
             buttons.forEach(btn => btn.style.display = "none");
