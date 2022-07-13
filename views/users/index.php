@@ -166,7 +166,8 @@
         </p>
         <button class="buttonPlan buttonsaveinfo buttongreen"> Enregistrer <i class='fas fa-save'> </i></button>
     </b></h4>
-        <div class="form-change-info">
+    <br>
+        <div class="form-add-plans">
             <p>Nom planning</p><input type="text" class="input-user-mail" name="n-input-user-mail"> 
             <br>
             <p>Lieu du plan</p><input type="text" class="input-user-mail" name="n-input-user-mail"> 
@@ -189,6 +190,7 @@
     </b></h4>
     <ul class="listPlans">
         <?php foreach($plannings as $planning){ $finished = date("Ym",strtotime(($planning->{'plan_date'}))); ?>
+        <?php if(($planning->{'isended'}) == 0) {?>
             <?php if((date("Ym",time()) > $finished)){ ?> <p class="planmonth2"><?php echo " Passés"?></p> <?php } ?>
             <?php if((date("Ym",time()) == $finished)){ ?> <p class="planmonth"><?php echo " Ce mois"?></p> <?php } ?>
             <?php if((date("Ym",time()) < $finished)){ ?> <p class="planmonth3"><?php echo " Futur"?></p> <?php } ?>
@@ -233,19 +235,43 @@
                 </ul>
                 <br>
             </li>
+            <?php } ?>
         <?php } ?>
     </ul>
 
   </div>
 </div>
 
+
+
 <div class="card task">
-  <div class="container">
+
+<!-- ADD PLANNING -->
+  <div class="container task-add">
+    <br>
+    <h4><b>
+        <p class="retour-info-user" onclick="javascript:hideFormUser('task-add','task-list','task')">
+            <i class='fas fa-angle-left' ></i>
+            <?php echo "&nbsp Retour"; ?>
+        </p>
+        <button class="buttonPlan buttonsaveinfo buttongreen"> Enregistrer <i class='fas fa-save'> </i></button>
+    </b></h4>
+        <br>
+        <div class="form-add-task">
+            <p>Nom tâche</p><input type="text" class="input-user-mail" name="n-input-user-mail"> 
+            <br>
+            <p>Priorité</p><input type="text" class="input-user-mail" name="n-input-user-mail"> 
+        </div>
+        <br>
+  </div>
+<!-- END ADD PLANNING-->
+
+  <div class="container task-list">
     <br>
     <h4><b>
         <i class='fas fa-tasks fa-lg' ></i>
         <?php echo "&nbsp Tâches"; ?>
-        <button class="buttonPlan buttonaddtask buttongreen"> Ajouter <i class='fas fa-plus'> </i></button>
+        <button class="buttonPlan buttonaddtask buttongreen" onclick="javascript:showFormUser('task-list','task-add','task')" > Ajouter <i class='fas fa-plus'> </i></button>
         <br>
     </b></h4>
         <ul class="listTask">

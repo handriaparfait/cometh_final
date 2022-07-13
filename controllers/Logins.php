@@ -10,9 +10,8 @@ class Logins extends Controller{
 	public function login($username,$password){
 		$this->loadModel("Login");
 		$users = $this->Login->connect($username,$password);
-		if($users[0] == 1){
-			$_SESSION["id"] = $users[0];
-		    header('Content-Type: application/json');
+		header('Content-Type: application/json');
+		if($users == "200"){
 			http_response_code(200);
 			echo json_encode(["response_code" => 200]);
 		}

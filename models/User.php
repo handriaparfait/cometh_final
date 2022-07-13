@@ -59,7 +59,8 @@ class User extends Model{
 	public function endPlanning($idp){
 		$sql =  "update planning set ispaused = 0 where plan_id = '". $idp ."'; ";
 		$sql .= "update planning set plan_end = NOW() where plan_id = '" . $idp . "'; ";
-		$sql .= "update planning_users plu inner join planning pl on plu.plan_id = pl.plan_id set total_hour = (timediff(pl.plan_end,pl.plan_start)) where plu.plan_id = '". $idp ."';";
+		$sql .= "update planning set isended = 1 where plan_id = '" . $idp . "'; ";
+		$sql .= "update planning_users plu inner join planning pl on plu.plan_id = pl.plan_id set total_hour = total_hour + (timediff(pl.plan_end,pl.plan_start)) where plu.plan_id = '". $idp ."';";
 		$sql .= "update users set current_plan = NULL where id = '" . $_SESSION["id"] . "'; ";
 		$query = $this->_connexion->prepare($sql);
 		$query->execute();

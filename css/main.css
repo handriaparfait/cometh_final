@@ -285,3 +285,7 @@ form {
 .planning-add{
     display: none;
 }
+
+.task-add {
+    display: none;
+}

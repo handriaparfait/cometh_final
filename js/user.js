@@ -83,7 +83,7 @@ function submit(idtask, status) {
 
 function showFormUser(firstClass,secondClass,cardClass) {
     document.getElementsByClassName(firstClass)[0].style.display = "none"; document.getElementsByClassName(secondClass)[0].style.display = "block";
-    document.getElementsByClassName(cardClass)[0].style.backgroundColor = "rgba(122, 255, 225, 0.39)"; document.getElementsByClassName(cardClass)[0].style.transition = "all 3s";
+    document.getElementsByClassName(cardClass)[0].style.backgroundColor = "rgba(161, 241, 255, 0.76)"; document.getElementsByClassName(cardClass)[0].style.transition = "all 3s";
 }
 
 function hideFormUser(firstClass,secondClass,cardClass) {

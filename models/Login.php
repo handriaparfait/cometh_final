@@ -11,7 +11,14 @@ class Login extends Model{
 		$sql = "SELECT count(*) from ". $this->table . " where name like '" . $username . "' and pwd like '".  $password . "'";
 		$query = $this->_connexion->prepare($sql);
 		$query->execute();
-		return $query->fetch();
+		if($query->fetch()[0] == "1"){
+			$sql = "SELECT id from ". $this->table . " where name like '" . $username . "' and pwd like '".  $password . "'";
+			$query = $this->_connexion->prepare($sql);
+			$query->execute();
+			$_SESSION["id"] = $query->fetch()[0];
+			return "200";
+		}
+		else return "401";
 	}
 }
  

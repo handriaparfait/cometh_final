@@ -1,11 +1,11 @@
 body {
-    background-image: linear-gradient(135deg, #FF4700AD 10%, #FFFFFF 100%);
+    background-image: linear-gradient(135deg, #0053ffad 10%, #FFFFFF 100%);
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
     font-family: "Open Sans", sans-serif;
     color: #333333;
-    margin-top: 90px;
+    margin-top: 250px;
 }
 
 .box-form {
@@ -44,7 +44,7 @@ body {
   padding: 30px;
   width: 100%;
   height: 100%;
-  background: #ee5c24ad;
+  background: #267de9ad;
   overflow: hidden;
   box-sizing: border-box;
 }
@@ -136,8 +136,8 @@ body {
     display: inline-block;
     border: 0;
     outline: 0;
-    box-shadow: 0px 4px 20px 0px #C62828a6;
-    background-image: linear-gradient(135deg, #ff7024 10%, #D56565 100%);
+    box-shadow: 0px 4px 20px 0px #e4e4e4a6;
+    background-image: linear-gradient(135deg, #53a6f6 100%, #D56565 100%);
 }
 
 label {
