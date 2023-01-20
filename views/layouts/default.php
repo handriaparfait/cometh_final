@@ -13,19 +13,20 @@
     </div>
     <ul class="nav-list">
       <li>
-        <a href="#">
+        <a href="users">
           <i class='fas fa-calendar'></i>
-          <span class="links_name">Planning</span>
+          <span class="links_name">Tableau de bord</span>
         </a>
-         <span class="tooltip">Planning</span>
+         <span class="tooltip">Tableau de bord</span>
       </li>
       <li>
-       <a href="#">
+       <a href="calendars">
          <i class='fas fa-file-invoice' ></i>
-         <span class="links_name">Facture</span>
+         <span class="links_name">Calendrier hebdo</span>
        </a>
-       <span class="tooltip">Facture</span>
+       <span class="tooltip">Calendrier hebdomadaire</span>
      </li>
+     <!--
       <li>
        <a href="#">
          <i class='fas fa-money-bill-alt' ></i>
@@ -68,6 +69,7 @@
        </a>
        <span class="tooltip">Paramètres</span>
      </li>
+     -->
      <li class="profile">
          <div class="profile-details">
            <img src="images/profile.jpg" alt="profileImg">

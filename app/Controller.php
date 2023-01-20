@@ -15,7 +15,7 @@ abstract class Controller{
 		ob_start();
 		require_once(ROOT.'views/' . strtolower(get_class($this)) . '/' . $file . '.php');
 		$content = ob_get_clean();
-		require_once(ROOT.'views/layouts/default.php');
+		require_once(ROOT.'views/layouts/default.php'); #pour toujours afficher le menu latéral peu importe la page
 	}
 
 	public function renderLogin(string $file){
