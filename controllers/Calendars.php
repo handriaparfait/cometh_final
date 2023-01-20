@@ -13,5 +13,7 @@ class Calendars extends Controller{
 		$tasks = $this->User->getTasks();
 		$this->render('index', compact('users'), compact('plannings'), compact("currentplanning"), compact("tasks"));
 	}
+
+
 }
 ?>
