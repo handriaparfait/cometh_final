@@ -99,7 +99,17 @@ class User extends Model{
         else return "false";
 	}
 
-
+	public function saveUserInformation($pseudo,$mail){
+		$sql = "";
+		if($pseudo != "") #améliorer avec un regex
+			$sql .= "update users set name = '" .$pseudo . "' where id = '" . $_SESSION["id"] . "'; ";
+		if($mail != "") #améliorer avec un regex
+			$sql .= "update users set email '" . $mail . "' where id = '" . $_SESSION["id"] . "';";
+		$query = $this->_connexion->prepare($sql);
+		$query->execute();
+		if ($query->rowCount() > 0) return "true";
+        else return "false";
+	}
 
 }
  

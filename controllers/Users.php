@@ -89,6 +89,19 @@ class Users extends Controller{
 		}
 	}
 
+	public function saveUserInformation($pseudo,$mail){
+		$this->loadModel("User");
+		$answer = $this->User->saveUserInformation($pseudo,$mail);
+		header('Content-Type: application/pdf');
+		if($answer == "true"){
+			http_response_code(200);
+			echo json_encode(["response_code" => 200]);
+		}else{
+			http_response_code(401);
+			echo json_encode(["response_code" => 401]);
+		}
+	}
+
 }
 
 ?>

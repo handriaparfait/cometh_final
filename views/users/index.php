@@ -98,12 +98,12 @@
             <i class='fas fa-angle-left' ></i>
             <?php echo "&nbsp Retour"; ?>
         </p>
-        <button class="buttonPlan buttonsaveinfo buttongreen"> Enregistrer <i class='fas fa-save'> </i></button>
+        <button class="buttonPlan buttonsaveinfo buttongreen" onclick="javascript:saveUserInformation()" > Enregistrer <i class='fas fa-save'> </i></button>
     </b></h4>
         <div class="form-change-info">
-            <p>Pseudo</p><input type="text" class="input-user-mail" name="n-input-user-mail"> 
+            <p>Pseudo</p><input type="text" class="input-user-pseudo" id="input-user-pseudo" name="n-input-user-mail"> 
             <br>
-            <p>Email</p><input type="text" class="input-user-mail" name="n-input-user-mail"> 
+            <p>Email</p><input type="text" class="input-user-mail" id="input-user-mail" name="n-input-user-mail"> 
         </div>
         <br>
   </div>
@@ -246,7 +246,7 @@
 
 <div class="card task">
 
-<!-- ADD PLANNING -->
+<!-- ADD TASK -->
   <div class="container task-add">
     <br>
     <h4><b>
@@ -264,9 +264,10 @@
         </div>
         <br>
   </div>
-<!-- END ADD PLANNING-->
+<!-- END ADD TASK-->
 
   <div class="container task-list">
+
     <br>
     <h4><b>
         <i class='fas fa-tasks fa-lg' ></i>
@@ -289,20 +290,78 @@
 </div>
 
 <div class="card compta">
-  <div class="container">
+
+<!-- ADD CREDIT -->
+  <div class="container credit-add">
+    <br>
+    <h4><b>
+        <p class="retour-info-user" onclick="javascript:hideFormUser('credit-add','compta-list','compta')">
+            <i class='fas fa-angle-left' ></i>
+            <?php echo "&nbsp Retour"; ?>
+        </p>
+        <button class="buttonPlan buttonsaveinfo buttongreen"> Enregistrer <i class='fas fa-save'> </i></button>
+    </b></h4>
+        <br>
+        <div class="form-add-credit">
+            <p>Motif</p><input type="text" class="input-user-mail" name="n-input-user-mail"> 
+            <br>
+            <p>Montant (crédit)</p><input type="text" class="input-user-mail" name="n-input-user-mail"> 
+            <br>
+            <p>Facture 
+                <button onclick=""  title="Ajouter une facture"><i class="far fa-file-pdf fa-2xl" style="color:red"></i></button>
+                <label class="add-receive">
+                    <i class="fa fa-pen-to-square"></i>
+                </label>
+            </p>
+        </div>
+        <br>
+  </div>
+<!-- END ADD CREDIT-->
+
+<!-- ADD DEBIT -->
+  <div class="container debit-add">
+    <br>
+    <h4><b>
+        <p class="retour-info-user" onclick="">
+            <i class='fas fa-angle-left' ></i>
+            <?php echo "&nbsp Retour"; ?>
+        </p>
+        <button class="buttonPlan buttonsaveinfo buttongreen"> Enregistrer <i class='fas fa-save'> </i></button>
+    </b></h4>
+        <br>
+        <div class="form-add-debit">
+            <p>Motif</p><input type="text" class="input-user-mail" name="n-input-user-mail"> 
+            <br>
+            <p>Montant (débit)</p><input type="text" class="input-user-mail" name="n-input-user-mail">
+            <br>
+            <p>Facture 
+                <button onclick=""  title="Ajouter une facture"><i class="far fa-file-pdf fa-2xl" style="color:red"></i></button>
+                <label class="add-receive">
+                    <i class="fa fa-pen-to-square"></i>
+                </label>
+            </p>
+        </div>
+        <br>
+  </div>
+<!-- END ADD DEBIT-->
+
+  <div class="container compta-list">
     <br>
     <h4><b>
         <i class='fas fa-money-bill-alt' ></i>
         <?php echo "&nbsp Comptabilité"; ?>
         <div class="buttons-compta">
-            <button class="buttonPlan buttonaddspent buttongreen"> Crédit <i class='fas fa-minus'> </i></button>
-            <button class="buttonPlan buttonadddebit buttongreen"> Débit <i class='fas fa-plus'> </i></button>
+            <button onclick="javascript:hideFormUser('compta-list','credit-add','compta')" class="buttonPlan buttonaddspent buttongreen"> Crédit <i class='fas fa-minus'> </i></button>
+            <button class="buttonPlan buttonadddebit"> Débit <i class='fas fa-plus'> </i></button>
         </div>
-        <p>
-            Solde : 3,000,00 €
+        <p class="solde">
+            Solde : 0,000,99 €
         </p>
         <br>
     </b></h4>
+    <h3>
+        <?php echo "&nbsp Liste des dépenses"; ?>
+    </h3>
   </div>
 </div>
 

@@ -6,7 +6,7 @@ body {
     font-family: "Open Sans", sans-serif;
     color: #333333;
     margin-top: 90px;
-    margin-left: 10%;
+    margin-left: 12%;
 }
 
 .card img {
@@ -79,13 +79,17 @@ body {
 
 
 
-.compta p {
+.compta p.solde {
     background-color: #c1fe9e;
     border-radius: 10px;
     padding-top: 10px;
     padding-bottom: 10px;
     text-align-last: center;
     margin-top: 25px;
+}
+
+.add-receive{
+    cursor: pointer;
 }
 
 .infouser {
@@ -243,7 +247,7 @@ form {
 }
 
 .buttonsaveinfo {
-    margin-left: 252px;
+    margin-left: 250px;
 }
 
 .buttonaddplanning {
@@ -273,6 +277,16 @@ form {
     font-size: medium;
 }
 
+.input-user-pseudo {
+    display: block;
+    width: 100%;
+    padding: 8px 16px;
+    border-radius: 6px;
+    border: 1px solid #a9a9a9;
+    transition: border .3s ease;
+    font-size: medium;
+}
+
 .user-change{
     display: none;
 }
@@ -287,5 +301,13 @@ form {
 }
 
 .task-add {
+    display: none;
+}
+
+.debit-add{
+    display: none;
+}
+
+.credit-add{
     display: none;
 }

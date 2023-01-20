@@ -11,7 +11,7 @@ closeBtn.addEventListener("click", () => {
 
 function menuBtnChange() {
     if (sidebar.classList.contains("open")) {
-        document.getElementsByTagName('body')[0].style.marginLeft = "10%";
+        document.getElementsByTagName('body')[0].style.marginLeft = "12%";
     } else {
         document.getElementsByTagName('body')[0].style.marginLeft = "5%";
     }
@@ -83,7 +83,7 @@ function submit(idtask, status) {
 
 function showFormUser(firstClass,secondClass,cardClass) {
     document.getElementsByClassName(firstClass)[0].style.display = "none"; document.getElementsByClassName(secondClass)[0].style.display = "block";
-    document.getElementsByClassName(cardClass)[0].style.backgroundColor = "rgba(161, 241, 255, 0.76)"; document.getElementsByClassName(cardClass)[0].style.transition = "all 3s";
+    document.getElementsByClassName(cardClass)[0].style.backgroundColor = "rgba(161, 255, 175, 0.76)"; document.getElementsByClassName(cardClass)[0].style.transition = "all 3s";
 }
 
 function hideFormUser(firstClass,secondClass,cardClass) {
@@ -105,6 +105,21 @@ function uploadPdf(id, idpl) {
         },
         error: function (xhr) {
             alert("Erreur de chargement du document PDF");
+        }
+    });
+}
+
+function saveUserInformation() {
+    var usermail = document.getElementById('input-user-mail').value;
+    var userpseudo = document.getElementById('input-user-pseudo').value;
+    jQuery.ajax({
+        url: 'Users/saveUserInformation/' + userpseudo + "/" + usermail,
+        contentType: 'application/json',
+        success: function (response) {
+            self.location.reload();
+        },
+        error: function (xhr) {
+            alert("Erreur sauvegarde !");
         }
     });
 }
