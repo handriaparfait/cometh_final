@@ -7,6 +7,77 @@ class User extends Model{
 		$this->getConnection();
 	}
 
+
+	public function create($nom_projet, $date_rendu, $adresse_proj){
+		$date_deb = date('y-m-d');
+		$etat_prjt = boolval(1);
+		$sql = "INSERT INTO projet (nom_projet, date_debut, date_rendu, adresse_projet, etat_projet) VALUES ('$nom_projet', '$date_deb', '$date_rendu', '$adresse_proj', $etat_prjt)";
+		return $this->_connexion->exec($sql);
+	}
+
+	public function add($nom_tache, $duree, $priori, $id_projet){
+		$sql = "INSERT INTO sous_tache (nom_tache, duree, ordre_priori, doc, id_projet) VALUES ('$nom_tache', $duree, '$priori', 'doc', $id_projet)";
+		return $this->_connexion->exec($sql);
+	}
+
+	public function fichier_projet($nom_fichier, $id_projet){
+		$date_ajout = date('y-m-d');
+		$sql = "INSERT INTO fichier_projet (nom_file,id_projet, date_ajout, etat ) VALUES ('$nom_fichier', $id_projet, '$date_ajout', 1)";
+		return $this->_connexion->exec($sql);
+
+	}
+	public function fichier_tache($nom_fichier, $id_tache){
+		$date_ajout = date('y-m-d');
+		$sql = "INSERT INTO fichier_tache (nom_file,id_tache, date_ajout, etat ) VALUES ('$nom_fichier', $id_tache, '$date_ajout', 1)";
+		return $this->_connexion->exec($sql);
+
+	}
+	
+
+	public function get_file_proj($id){
+		
+		$sql = "SELECT * from fichier_projet where id_projet = ".intval($id);
+		$query = $this->_connexion->prepare($sql);
+		$query->execute();
+		return $query->fetchall(PDO::FETCH_OBJ);
+		
+	}
+
+	public function get_tache_file($id){
+		
+		$sql = "SELECT * from fichier_tache where id_tache = ".intval($id);
+		$query = $this->_connexion->prepare($sql);
+		$query->execute();
+		return $query->fetchall(PDO::FETCH_OBJ);
+		
+	}
+
+	public function get_tache_by_id($id){
+		
+		$sql = "SELECT * from sous_tache where id_tache = ".intval($id);
+		$query = $this->_connexion->prepare($sql);
+		$query->execute();
+		return $query->fetchall(PDO::FETCH_OBJ);
+		
+	}
+
+	public function get_projet(){
+		$sql = "SELECT * from projet";
+		$query = $this->_connexion->prepare($sql);
+		$query->execute();
+		return $query->fetchall(PDO::FETCH_OBJ);
+		
+	}
+
+	public function get_tache(){
+		$sql = "SELECT * FROM sous_tache";
+		$query = $this->_connexion->prepare($sql);
+		$query->execute();
+		return $query->fetchall(PDO::FETCH_OBJ);
+		
+	}
+
+
 	public function getInformation(){
 		$sql = "SELECT * from ". $this->table . " where id = '" . $_SESSION["id"] . "'";
 		$query = $this->_connexion->prepare($sql);
@@ -101,15 +172,19 @@ class User extends Model{
 
 	public function saveUserInformation($pseudo,$mail){
 		$sql = "";
-		if($pseudo != "") #améliorer avec un regex
+		if($pseudo != "") #amï¿½liorer avec un regex
 			$sql .= "update users set name = '" .$pseudo . "' where id = '" . $_SESSION["id"] . "'; ";
-		if($mail != "") #améliorer avec un regex
+		if($mail != "") #amï¿½liorer avec un regex
 			$sql .= "update users set email '" . $mail . "' where id = '" . $_SESSION["id"] . "';";
 		$query = $this->_connexion->prepare($sql);
 		$query->execute();
 		if ($query->rowCount() > 0) return "true";
         else return "false";
 	}
+
+
+
+	
 
 }
  

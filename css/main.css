@@ -5,8 +5,8 @@ body {
     background-attachment: fixed;
     font-family: "Open Sans", sans-serif;
     color: #333333;
-    margin-top: 90px;
-    margin-left: 12%;
+    margin-top: 3%;
+    margin-left: 15%;
 }
 
 .card img {
@@ -14,6 +14,14 @@ body {
     border-radius: 15px;
     margin: 3%;
     border: 5px solid #c1c1c1;
+}
+
+.calendar-body{
+    zoom:65%
+}
+
+.swal_cometh_calendar{
+    zoom: 80%
 }
 
 .card p.horaires {
@@ -106,6 +114,12 @@ body {
     background-color: #ffffff;
 }
 
+.understain {
+    margin-left: 25px;
+    background-color: #ffffff;
+    margin-top: 35px;
+}
+
 .compta {
     margin-left: 25px;
     background-color: #ffffff;
@@ -126,7 +140,11 @@ body {
     height: 20px;
 }
 
-.listTask input[type="checkbox"]:checked  {
+.understain-list {
+
+}
+
+.listTask input[type="checkbox"]:checked {
     width: 25px;
     height: 20px;
     accent-color: #ffc766;
@@ -179,8 +197,6 @@ body {
     padding: 2px 16px;
 }
 
-
-
 .buttonPlan {
     appearance: none;
     background-color: #338fd7;
@@ -204,7 +220,6 @@ body {
     touch-action: manipulation;
     vertical-align: middle;
     white-space: nowrap;
-    margin-left: 15px;
 }
 
 .blocked {
@@ -238,8 +253,16 @@ form {
     cursor: pointer;
 }
 
+.buttoncalendar{
+    width: 100px;
+}
+
 .buttongreen {
-    background: #57d733;
+background: #57d733;
+}
+
+.buttonred {
+    background: tomato;
 }
 
 .buttonchangeinfo {
@@ -312,7 +335,7 @@ form {
     display: none;
 }
 
-table /* Le tableau en lui-même */ {
+table /* Le tableau en lui-mï¿½me */ {
     margin: auto; /* Centre le tableau */
     /*border: 4px outset green;*/ /* Bordure du tableau avec effet 3D (outset) */
     border-collapse: collapse; /* Colle les bordures entre elles */
@@ -321,8 +344,8 @@ table /* Le tableau en lui-même */ {
     margin-left: 27px;
 }
 
-th /* Les cellules d'en-tête */ {
-    background-color: #4677cb;
+th /* Les cellules d'en-tï¿½te */ {
+    background-color: #505662;
     color: white;
     font-size: 1.1em;
     font-family: "Poppins", sans-serif;
@@ -334,20 +357,165 @@ td /* Les cellules normales */ {
     font-size: 0.8em;
     border: 1px solid #d2d2d2;
     font-family: Verdana, "Trebuchet MS", Times, "Times New Roman", serif;
-    text-align: center; /* Tous les textes des cellules seront centrés*/
-    padding: 5px; /* Petite marge intérieure aux cellules pour éviter que le texte touche les bordures */
+    text-align: center; /* Tous les textes des cellules seront centrï¿½s*/
+    padding: 5px; /* Petite marge intï¿½rieure aux cellules pour ï¿½viter que le texte touche les bordures */
     height: 25px;
     width: 200px;
 }
 
 td.time {
     font-size: 1em;
-    height: 400px;
+    height: 480px;
     width: 250px;
-    background-color: #7c9ff1;
+    background-color: #00000017;
     border: 0px solid;
+    color: black;
 }
 
 .content-calendar-list-projet{
-    display: inline-flex;
+    display: block;
+    min-width: 100%;
 }
+
+.buttonEmptyTableHebdo {
+    height: fit-content;
+    width: fit-content;
+    margin-left : 26px;
+    font-size : 20px;
+}
+
+.buttonArchiverTableHebdo {
+    height: fit-content;
+    width: fit-content;
+    margin-left : 26px;
+    font-size : 20px;
+}
+
+.budgetPrevisionnel {
+    margin-top: 17.5%;
+    min-height: 92%;
+}
+
+.fa-solid{
+    color: #ff8338;
+}
+
+.fa-file-export{
+    color: #338fd7;
+}
+
+.fa-box-archive{
+    color: #338fd7;
+}
+
+.fa-trash{
+    color: #338fd7;
+}
+
+
+
+.fa-change-profit {
+    cursor: pointer;
+    color: #338fd7;
+}
+
+h3 {
+    color: black;
+}
+
+.complement_cal_hebdo{
+    margin-left: 20px;
+    margin-top: 20px;
+}
+
+.buttonblack {
+    background: #fcfcfc;
+    color: black;
+}
+
+.buttongray{
+    background: #fcfcfc;
+    color: black;
+}
+
+.NoteCalendrierHedbomadaire{
+    margin-left: 30px;
+    font-style: normal;
+}
+
+.buttonorange{
+    background : #ff8338;
+}
+
+.tdHebdomadaireTache {
+    border-bottom: none;
+    display: table-cell;
+    padding: inherit;
+}
+
+.tdHebdomadaireAction {
+    border-top: none;
+    display: table-cell;
+    padding: inherit;
+}
+
+.tableHebdomadaire {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    border-radius: 15px;
+}
+
+
+.tableHebdomadaire:hover {
+    box-shadow: 0 8px 30px 0 rgba(0,0,0,0.2);
+}
+
+.swal_supp_cometh_calendar{
+    zoom:80%
+}
+
+.archive_detail{
+    margin-left: 1%;
+}
+
+.fa-download{
+    color: #338fd7;
+}
+
+.tablePrevisionnel {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    border-radius: 15px;
+    margin-bottom: 2%;
+}
+.tablePrevisionnel:hover{
+    box-shadow: 0 8px 30px 0 rgba(0,0,0,0.2);
+}
+
+.content-calendar-list-projet-prev{
+    margin-top: 2%;
+    min-width: 100%;
+}
+
+.info_task_half_day {
+    display: inline;
+    font-style: italic;
+    font-family: 'Open Sans';
+    color: #338fd7;
+}
+
+.fa-edit{
+    color: #338fd7;
+}
+
+.information_calendar_hebdo{
+    margin-left :1%;
+    margin-top :1%;
+}
+
+.action-calendar-hebdo{
+    margin-bottom :1%;
+    margin-top :1%;
+
+}
+

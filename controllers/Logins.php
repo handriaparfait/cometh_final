@@ -20,7 +20,6 @@ class Logins extends Controller{
 			echo json_encode(["response_code" => 401]);
 		}
 	}
-
 }
 
 ?>
