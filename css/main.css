@@ -1,12 +1,12 @@
 body {
+    all: unset;
     background-image: linear-gradient(186deg, #ebebeb 10%, #ffffff 100%);
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
     font-family: "Open Sans", sans-serif;
     color: #333333;
-    margin-top: 3%;
-    margin-left: 15%;
+   /* margin-top: -1.3%;*/
 }
 
 .card img {
@@ -18,6 +18,13 @@ body {
 
 .calendar-body{
     zoom:65%
+}
+
+.planning_name_task{
+    font-size: 1.3em;
+    color:black;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
 }
 
 .swal_cometh_calendar{
@@ -351,6 +358,7 @@ th /* Les cellules d'en-t�te */ {
     font-family: "Poppins", sans-serif;
     /*border-radius: 8px;*/
     height: 100px;
+    text-align: center;
 }
 
 td /* Les cellules normales */ {
@@ -394,6 +402,8 @@ td.time {
 .budgetPrevisionnel {
     margin-top: 17.5%;
     min-height: 92%;
+    overflow-y: scroll;
+    min-height: max-content;
 }
 
 .fa-solid{

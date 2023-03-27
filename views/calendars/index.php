@@ -7,7 +7,7 @@
 <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.min.css'>
 <script src="js/calendar.js"></script>
 
-<body>
+<body style="display:inline-flex;">
     <!-- DEBUT -->
     <div class="calendar-body">
         <div style="display: inline-flex;">
@@ -72,11 +72,11 @@
                                                 if($planning->{'horaire'} == $legende){?>
                                                     <div class='post-it' contenteditable>
                                                     <i class="fa-solid fa-angles-right"style='display:inline-flex'>
-                                                        <h3 id= <?php echo $planning->{'id_tache'} ?> ><?php 
+                                                        <p class="planning_name_task" id= <?php echo $planning->{'id_tache'} ?> ><?php 
                                                             echo "&nbsp&nbsp&nbsp&nbsp" 
                                                             . $planning->{'nom_tache'};
                                                             echo "<br>";  ?>
-                                                        </h3>
+                                                        </p>
                                                     </i>
                                                     </div>
                                                 <?php
@@ -245,11 +245,11 @@
                                             if($planning->{'horaire'} == $legende){?>
                                                 <div class='post-it' contenteditable>
                                                     <i class="fa-solid fa-angles-right"style='display:inline-flex'>
-                                                        <h3 id= <?php echo $planning->{'id_tache'} ?> ><?php 
+                                                        <p class="planning_name_task" id= <?php echo $planning->{'id_tache'} ?> ><?php 
                                                             echo "&nbsp&nbsp&nbsp&nbsp" 
                                                             . $planning->{'nom_tache'};
                                                             echo "<br>";  ?>
-                                                        </h3>
+                                                        </p>
                                                     </i>
                                                 </div>
                                             <?php

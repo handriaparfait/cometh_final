@@ -1,3 +1,4 @@
+/*
 let sidebar = document.querySelector(".sidebar");
 sidebar.classList.toggle("open");
 let closeBtn = document.querySelector("#btn");
@@ -7,6 +8,7 @@ closeBtn.addEventListener("click", () => {
     sidebar.classList.toggle("open");
     menuBtnChange();
 });
+*/
 
 
 function menuBtnChange() {
