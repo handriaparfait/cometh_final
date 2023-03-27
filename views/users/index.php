@@ -1,5 +1,6 @@
 <?php
 
+
 function convert($hour)
 {
     if ($hour == null) return "00h00";
@@ -262,7 +263,7 @@ function boxchecked($status)
 </style>
 
 
-<link rel="stylesheet" href="css/main.css">
+<!--link rel="stylesheet" href="css/main.css"-->
 <script type="text/javascript" src="js/create.js"></script>
 <script type="text/javascript" src="js/add.js"></script>
 
@@ -516,7 +517,7 @@ function boxchecked($status)
 
                                             // Boucle sur les éléments du tableau et affiche la valeur de "nom_file"<a href="" type="file"></a>
                                             tacheFiles.forEach(function(file) {
-                                                document.getElementById('showtachefile').innerHTML += '<a href="file/tache/' + file.nom_file.split('.')[0] + '/' + file.nom_file + '">' + file.nom_file + '</a> <br>';
+                                                document.getElementById('showtachefile').innerHTML += '<a href="file/tache/'+ file.hashcode + '/' + file.nom_file.split('.')[0] + '/' + file.nom_file + '">' + file.nom_file + '</a> <br>';
                                             });
 
 
@@ -605,7 +606,7 @@ function boxchecked($status)
 
                                             // Boucle sur les éléments du tableau et affiche la valeur de "nom_file"<a href="" type="file"></a>
                                             projFiles.forEach(function(file) {
-                                                document.getElementById('showprjfile').innerHTML += '<a href="file/projet/' + file.nom_file.split('.')[0] + '/' + file.nom_file + '">' + file.nom_file + '</a> <br>';
+                                                document.getElementById('showprjfile').innerHTML += '<a href="file/projet/'+file.hashcode+ '/' + file.nom_file.split('.')[0] + '/' + file.nom_file + '">' + file.nom_file + '</a> <br>';
                                             });
 
 

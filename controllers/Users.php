@@ -213,7 +213,12 @@ class Users extends Controller
 		$id_projet = $_POST['id_projet'];
 		$tmp_path = $_FILES['file']['tmp_name'];
 		$file_name = $_FILES['file']['name'];
-		$dossier_name = 'C:/xampp/htdocs/cometh/file/projet/' . pathinfo($file_name, PATHINFO_FILENAME);
+
+		$file_contents = file_get_contents($tmp_path);
+		$salt = bin2hex(random_bytes(16));
+
+		$hashed_name = hash("sha256", $salt . $file_contents);
+		$dossier_name = 'C:/xampp/htdocs/cometh/file/projet/' .$hashed_name. '/' . pathinfo($file_name, PATHINFO_FILENAME);
 		if (!file_exists($dossier_name)) {
 			mkdir($dossier_name, 0777, true);
 		}
@@ -223,7 +228,7 @@ class Users extends Controller
 
 
 		$this->loadModel("User");
-		$fichier_projet = $this->User->fichier_projet($file_name, $id_projet);
+		$fichier_projet = $this->User->fichier_projet($file_name, $id_projet, $hashed_name);
 		if ($fichier_projet == "true") {
 			echo ("c est ok");
 			echo json_encode($_POST);
@@ -240,7 +245,10 @@ class Users extends Controller
 		$id_tache = $_POST['id_tache'];
 		$tmp_path = $_FILES['filetache']['tmp_name'];
 		$file_name = $_FILES['filetache']['name'];
-		$dossier_name = 'C:/xampp/htdocs/cometh/file/tache/' . pathinfo($file_name, PATHINFO_FILENAME);
+		$file_contents = file_get_contents($tmp_path);
+		$salt = bin2hex(random_bytes(16));
+		$hashed_name = hash("sha256", $salt . $file_contents);
+		$dossier_name = 'C:/xampp/htdocs/cometh/file/tache/'.$hashed_name. '/' . pathinfo($file_name, PATHINFO_FILENAME);
 		if (!file_exists($dossier_name)) {
 			mkdir($dossier_name, 0777, true);
 		}
@@ -250,7 +258,7 @@ class Users extends Controller
 
 
 		$this->loadModel("User");
-		$fichier_tache = $this->User->fichier_tache($file_name, $id_tache);
+		$fichier_tache = $this->User->fichier_tache($file_name, $id_tache, $hashed_name);
 		if ($fichier_tache == "true") {
 			echo ("c est ok");
 			echo json_encode($_POST);

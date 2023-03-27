@@ -20,15 +20,15 @@ class User extends Model{
 		return $this->_connexion->exec($sql);
 	}
 
-	public function fichier_projet($nom_fichier, $id_projet){
+	public function fichier_projet($nom_fichier, $id_projet, $hash){
 		$date_ajout = date('y-m-d');
-		$sql = "INSERT INTO fichier_projet (nom_file,id_projet, date_ajout, etat ) VALUES ('$nom_fichier', $id_projet, '$date_ajout', 1)";
+		$sql = "INSERT INTO fichier_projet (nom_file,id_projet, date_ajout, etat, hashcode ) VALUES ('$nom_fichier', $id_projet, '$date_ajout', 1, '$hash')";
 		return $this->_connexion->exec($sql);
 
 	}
-	public function fichier_tache($nom_fichier, $id_tache){
+	public function fichier_tache($nom_fichier, $id_tache, $hash){
 		$date_ajout = date('y-m-d');
-		$sql = "INSERT INTO fichier_tache (nom_file,id_tache, date_ajout, etat ) VALUES ('$nom_fichier', $id_tache, '$date_ajout', 1)";
+		$sql = "INSERT INTO fichier_tache (nom_file,id_tache, date_ajout, etat, hashcode ) VALUES ('$nom_fichier', $id_tache, '$date_ajout', 1, '$hash')";
 		return $this->_connexion->exec($sql);
 
 	}
