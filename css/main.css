@@ -403,11 +403,11 @@ td.time {
     margin-top: 17.5%;
     min-height: 92%;
     overflow-y: scroll;
-    min-height: max-content;
+    /*min-height: max-content;*/
 }
 
 .fa-solid{
-    color: #ff8338;
+    color: #505662;
 }
 
 .fa-file-export{

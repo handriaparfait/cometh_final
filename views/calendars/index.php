@@ -60,7 +60,7 @@
                                 ?>
                                 <td <?php echo "name=". $jour[$i+1]  ."_". $legende;
                                     if (substr($heure, -3, 3) != ":30"){
-                                         echo " style=\"border-bottom:hidden\"";
+                                         echo " style=\"border-bottom:hidden;height:100%\"";
                                     }  
                                     else{ 
                                         echo " style=\"vertical-align:bottom\"" ;
@@ -71,11 +71,11 @@
                                             if (substr($heure, -3, 3) != ":30"){  #afficher les tâches
                                                 if($planning->{'horaire'} == $legende){?>
                                                     <div class='post-it' contenteditable>
-                                                    <i class="fa-solid fa-angles-right"style='display:inline-flex'>
+                                                    <i class="fa-solid fa-circle"style='display:inline-flex'>
                                                         <p class="planning_name_task" id= <?php echo $planning->{'id_tache'} ?> ><?php 
-                                                            echo "&nbsp&nbsp&nbsp&nbsp" 
-                                                            . $planning->{'nom_tache'};
-                                                            echo "<br>";  ?>
+                                                            echo "&nbsp&nbsp&nbsp&nbsp" ?>
+                                                            <h7 id= <?php echo $planning->{'id_tache'} ?> > <?php echo $planning->{'nom_tache'} ?> </h7>
+                                                            <br>
                                                         </p>
                                                     </i>
                                                     </div>
@@ -233,7 +233,7 @@
                                 <td
                                 <?php echo "name=". $jour[$i+1]  ."_". $legende;
                                     if (substr($heure, -3, 3) != ":30"){
-                                         echo " style=\"border-bottom:hidden\"";
+                                         echo " style=\"border-bottom:hidden;height:100%\"";
                                     }  
                                     else{ 
                                         echo " style=\"vertical-align:bottom\"" ;
@@ -244,11 +244,11 @@
                                             if (substr($heure, -3, 3) != ":30"){  #afficher les tâches
                                             if($planning->{'horaire'} == $legende){?>
                                                 <div class='post-it' contenteditable>
-                                                    <i class="fa-solid fa-angles-right"style='display:inline-flex'>
+                                                    <i class="fa-solid fa-circle"style='display:inline-flex'>
                                                         <p class="planning_name_task" id= <?php echo $planning->{'id_tache'} ?> ><?php 
-                                                            echo "&nbsp&nbsp&nbsp&nbsp" 
-                                                            . $planning->{'nom_tache'};
-                                                            echo "<br>";  ?>
+                                                            echo "&nbsp&nbsp&nbsp&nbsp" ?>
+                                                                <h7 id= <?php echo $planning->{'id_tache'} ?> > <?php echo $planning->{'nom_tache'} ?> </h7>
+                                                            <br>
                                                         </p>
                                                     </i>
                                                 </div>

@@ -4,7 +4,7 @@ function afficherSousTaches(understains, day, hourly,ishebdo) {
     var swal_html =   "<div style='display:inline-grid; margin-top:-15px;'> <p style='font-style:italic' > (Selectionner la sous tâche à ajouter) </p><br><br>";
     understains.forEach(element =>
         swal_html += "<button class='buttonPlan buttonblack' onclick='javascript:ajouterSousTaches(" + understains[index]["id_tache"] + ",/" + day + "/,/" + hourly + "/,/" + ishebdo + "/)'>"
-        + "<b>" + understains[index++]["nom_tache"] + "</b>" 
+        + "" + understains[index++]["nom_tache"] + "" 
         + "</button>"
         + "<br>");
     swal_html += "</div>";
@@ -23,11 +23,11 @@ function afficherSousTaches(understains, day, hourly,ishebdo) {
 function afficherSousTachesSupp(day, hourly,ishebdo) {
     let index = 0;
     var swal_html = "<div style='display:inline-grid; margin-top:-15px'> <p style='font-style:italic' > (Selectionner la sous tâche à retirer) </p><br><br>";
-    var understains = $(".tableHebdomadaire tr td[name=" + day + "_" + hourly + "] i h3").get();
+    var understains = $(".tableHebdomadaire tr td[name=" + day + "_" + hourly + "] i h7").get();
     if(ishebdo == 0){
-        var understains = $(".tablePrevisionnel tr td[name=" + day + "_" + hourly + "] i h3").get();
+        understains = $(".tablePrevisionnel tr td[name=" + day + "_" + hourly + "] i h7").get();
     }
-    //console.log(understains);
+    console.log(understains);
     understains.forEach(element =>
         swal_html += "<button class='buttonPlan buttonblack' onclick='javascript:retirerSousTache(" + element.id + ",/" + day + "/,/" + hourly + "/,/" + ishebdo + "/)'>"
         + element.innerText
