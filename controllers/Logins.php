@@ -9,7 +9,9 @@ class Logins extends Controller{
 
 	public function login($username,$password){
 		$this->loadModel("Login");
-		$users = $this->Login->connect($username,$password);
+		$passwords = hash("sha256",  $password);
+
+		$users = $this->Login->connect($username,$passwords);
 		header('Content-Type: application/json');
 		if($users == "200"){
 			http_response_code(200);

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Exemple de bouton input checkbox avec label sur une nouvelle ligne</title>
+  </head>
+  <body>
+    <div id="container">
+      <button id="btn">Créer une case à cocher avec label</button>
+      <br />
+    </div>
+
+    <script>
+      const container = document.getElementById("container");
+      const btn = document.getElementById("btn");
+
+      btn.addEventListener("click", function () {
+        const input = document.createElement("input");
+        container.replaceChild(input, btn);
+
+        input.addEventListener("keydown", function (event) {
+          if (event.key === "Enter") {
+            const br1 = document.createElement("br");
+            const br2 = document.createElement("br");
+            container.appendChild(br1);
+
+            const label = document.createElement("label");
+            label.textContent = input.value;
+
+            const checkbox = document.createElement("input");
+            checkbox.type = "checkbox";
+            checkbox.checked = true;
+
+            container.appendChild(checkbox);
+            container.appendChild(label);
+
+            container.appendChild(br2);
+
+            const newBtn = document.createElement("button");
+            newBtn.textContent = "Créer une case à cocher avec label";
+            newBtn.addEventListener("click", function () {
+              container.replaceChild(input, newBtn);
+              input.value = "";
+              input.focus();
+            });
+
+            container.appendChild(newBtn);
+            container.removeChild(input);
+          }
+        });
+
+        input.focus();
+      });
+    </script>
+  </body>
+</html>

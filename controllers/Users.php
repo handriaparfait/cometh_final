@@ -17,6 +17,48 @@ class Users extends Controller
 		$this->render('index', compact('users'), compact('projet'), compact('tache'), compact('plannings'), compact("currentplanning"), compact("tasks"));
 	}
 
+	public function supprimertache(){
+		$this->loadModel('User');
+		$id_tache = $_POST['id'];
+
+		$supp = $this->User->supprimertache($id_tache);
+		if ($supp == "true") {
+			echo ("c est ok");
+			echo json_encode($_POST);
+		} else {
+			echo ("erreur");
+		}
+
+	}
+
+	public function supprimertouttache(){
+		$this->loadModel('User');
+		$id_projet = $_POST['id'];
+
+		$supp = $this->User->supprimertouttache($id_projet);
+		if ($supp == "true") {
+			echo ("c est ok");
+			echo json_encode($_POST);
+		} else {
+			echo ("erreur");
+		}
+
+	}
+
+	public function supprimerprojet(){
+		$this->loadModel('User');
+		$id_projet = $_POST['id'];
+
+		$supp = $this->User->supprimerprojet($id_projet);
+		if ($supp == "true") {
+			echo ("c est ok");
+			echo json_encode($_POST);
+		} else {
+			echo ("erreur");
+		}
+
+	}
+
 	public function idproj()
 	{
 		$this->loadModel("User");
@@ -64,6 +106,23 @@ class Users extends Controller
 		header('Content-Type: application/json');
 		echo json_encode($tache_byid);
 	}
+
+	public function get_projet_by_id()
+	{
+		$this->loadModel("User");
+		$idprojet = array('idprojet' => $_POST['idprojet']);
+		$getprojet_byid = $this->User->get_projet_by_id($_POST['idprojet']);
+		$projet_byid = compact('getprojet_byid');
+		ob_start();
+		extract($projet_byid);
+		include('http://localhost/cometh/users/index.php');
+		$content = ob_get_clean();
+
+		header('Content-Type: application/json');
+		echo json_encode($projet_byid);
+	}
+
+	
 
 
 
@@ -197,9 +256,52 @@ class Users extends Controller
 
 
 
+
 		$this->loadModel("User");
 		$add = $this->User->add($nom_tache, $duree, $priori, $id_projet);
 		if ($add == "true") {
+			echo ("c est ok");
+			echo json_encode($add);
+		} else {
+			echo ("erreur");
+			echo json_encode($add);
+		}
+	}
+
+
+	public function edit_tache()
+	{
+
+		$nom_tache = $_POST['titre'];
+		$duree = $_POST['duree'];
+		$priori = $_POST['priori'];
+		$id_tache = $_POST['id_tache'];
+
+
+
+		$this->loadModel("User");
+		$edit_tache = $this->User->edit_tache($id_tache, $nom_tache, $duree, $priori);
+		if ($edit_tache == "true") {
+			echo ("c est ok");
+			echo json_encode($_POST);
+		} else {
+			echo ("erreur");
+		}
+	}
+
+	public function edit_projet()
+	{
+
+		$nom_projet = $_POST['titre'];
+		$daterendu = $_POST['daterendu'];
+		$adresseproj = $_POST['adresseproj'];
+		$id_projet = $_POST['id_projet'];
+
+
+
+		$this->loadModel("User");
+		$edit_projet = $this->User->edit_projet($id_projet, $nom_projet, $daterendu, $adresseproj);
+		if ($edit_projet == "true") {
 			echo ("c est ok");
 			echo json_encode($_POST);
 		} else {
@@ -229,18 +331,14 @@ class Users extends Controller
 
 		$this->loadModel("User");
 		$fichier_projet = $this->User->fichier_projet($file_name, $id_projet, $hashed_name);
-		if ($fichier_projet == "true") {
-			echo ("c est ok");
-			echo json_encode($_POST);
-		} else {
-			echo ("erreur");
-		}
+		header('Content-Type: application/json');
+
+		echo json_encode($hashed_name);
 	}
 
 
 	public function fichier_tache()
 	{
-
 
 		$id_tache = $_POST['id_tache'];
 		$tmp_path = $_FILES['filetache']['tmp_name'];
@@ -259,9 +357,10 @@ class Users extends Controller
 
 		$this->loadModel("User");
 		$fichier_tache = $this->User->fichier_tache($file_name, $id_tache, $hashed_name);
-		if ($fichier_tache == "true") {
-			echo ("c est ok");
-			echo json_encode($_POST);
+		header('Content-Type: application/json');
+
+		if ($fichier_tache == 1) {
+			echo json_encode($hashed_name);
 		} else {
 			echo ("erreur");
 		}

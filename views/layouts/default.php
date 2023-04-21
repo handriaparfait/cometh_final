@@ -6,7 +6,6 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 <style>
-
   html,
   body {
     margin: 0;
@@ -377,7 +376,6 @@
     column-gap: 20px;
     margin: 20px;
   }
-
   .main-header {
     position: relative;
     display: flex;
@@ -553,12 +551,13 @@
     content: "";
     position: absolute;
     top: 0;
-    left: 120px;
+    left: 158px;
     bottom: 0;
     width: 2px;
     background-color: #f0f0f0;
-  }
+    height: 10000%;
 
+  }
   .card__photo:hover {
     transform: scale(1.1);
     cursor: pointer;
@@ -611,14 +610,13 @@
     display: flex;
     flex: 1;
     flex-direction: column;
-    padding-left: 12px;
-    margin-left: 48px;
+    margin-left: 80px;
     transform: translateX(0);
     transition: all 0.3s;
   }
 
   .card__description {
-    width: 95%;
+    width: 90%;
   }
 
   .card__description:hover {
@@ -830,7 +828,7 @@
 
         <aside class="sidenav" style="z-index: 100; position: fixed;">
           <div class="sidenav__brand" style="padding: 10px; height: 70px;">
-            <div class="logo" >
+            <div class="logo">
               <img src="https://img.freepik.com/vecteurs-premium/caricature-batiments-etat-reel_18591-40701.jpg?w=2000" style="height: 50px; width: 50px; border-radius: 50%;" alt="logo">
             </div>
 
