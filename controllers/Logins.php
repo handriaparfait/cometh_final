@@ -22,6 +22,13 @@ class Logins extends Controller{
 			echo json_encode(["response_code" => 401]);
 		}
 	}
+
+	public function deconnexion() {
+    	session_unset();
+    	session_destroy();
+		http_response_code(200);
+		echo json_encode(["response_code" => 200]);
+	}
 }
 
 ?>

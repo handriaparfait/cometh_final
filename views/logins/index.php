@@ -5,6 +5,8 @@
 	<link rel="stylesheet" href="css/login.css">
 	<script type="text/javascript" src="js/login.js"></script>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.all.min.js"></script>
+	<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.min.css'>
 </head>
 <body>
 <!-- partial:index.partial.html -->
@@ -26,7 +28,7 @@
 	
 		<div class="right">
 		<h5>Connexion</h5>
-		<p>Vous avez un compte? <a href="#"> Créer votre compte</a> pour bénéficier de nos outils</p>
+		<p>Vous avez un compte ? <a href="#"> Créer votre compte</a> pour bénéficier de nos outils</p>
 		<div class="inputs">
 			<input id="username" type="text" placeholder="user name">
 			<br>
@@ -37,7 +39,7 @@
 			
 		<div class="remember-me--forget-password">
 				<!-- Angular -->
-	<label>
+	<label style="display:none">
 		<input type="checkbox" name="item" checked/>
 		<span class="text-checkbox">Remember me</span>
 	</label>

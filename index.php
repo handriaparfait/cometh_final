@@ -27,18 +27,18 @@ if($params[0] != ""){
 	}
 }
 else{
-    if(!isset($_SESSION["id"])){
-        $params = [];
-        $controller    = "Logins";
-        require_once(ROOT.'controllers/'.$controller . ".php");
-        $action = "connexion";
-        $controller = new $controller();
-        call_user_func_array([$controller,$action], $params);
-    }
-    else{
-        //rester sur la meme page
-        header ("Location: users");
-    }
+	if(!isset($_SESSION["id"])){
+		$params = [];
+		$controller	= "Logins";
+		require_once(ROOT.'controllers/'.$controller . ".php");
+		$action = "connexion";
+		$controller = new $controller();
+		call_user_func_array([$controller,$action], $params);
+	}
+	else{
+		//rester sur la meme page
+		header ("Location: users");
+	}
 }
 
 ?>

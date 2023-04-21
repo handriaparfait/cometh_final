@@ -6,6 +6,7 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 <style>
+
   html,
   body {
     margin: 0;
@@ -173,6 +174,8 @@
     visibility: visible;
     opacity: 1;
     transform: translateY(0);
+    margin-left: -470%;
+    margin-top: -110%
   }
 
   .sidenav {
@@ -181,7 +184,7 @@
     height: 100%;
     overflow-y: auto;
     overflow-x: hidden;
-    background-color: #394263;
+    background-color: #505662;
     color: #fff;
     width: 240px;
     transform: translateX(-245px);
@@ -215,11 +218,13 @@
   }
 
   .sidenav__brand-link {
+    text-decoration : none;
     font-size: 18px;
     font-weight: bold;
     color: #fff;
     margin: 0 15px;
     letter-spacing: 1.5px;
+    font-family:system-ui;
   }
 
   .sidenav__profile {
@@ -271,7 +276,7 @@
     width: 240px;
     padding: 0;
     margin: 0;
-    background-color: #394263;
+    background-color: #505662;
     list-style-type: none;
   }
 
@@ -376,6 +381,7 @@
     column-gap: 20px;
     margin: 20px;
   }
+
   .main-header {
     position: relative;
     display: flex;
@@ -551,13 +557,12 @@
     content: "";
     position: absolute;
     top: 0;
-    left: 158px;
+    left: 120px;
     bottom: 0;
     width: 2px;
     background-color: #f0f0f0;
-    height: 10000%;
-
   }
+
   .card__photo:hover {
     transform: scale(1.1);
     cursor: pointer;
@@ -610,13 +615,14 @@
     display: flex;
     flex: 1;
     flex-direction: column;
-    margin-left: 80px;
+    padding-left: 12px;
+    margin-left: 48px;
     transform: translateX(0);
     transition: all 0.3s;
   }
 
   .card__description {
-    width: 90%;
+    width: 95%;
   }
 
   .card__description:hover {
@@ -653,7 +659,7 @@
     align-items: center;
     justify-content: center;
     padding: 4px;
-    color: #394263;
+    color: #505662;
     font-size: 11px;
   }
 
@@ -801,23 +807,23 @@
   <div class="row" style="margin-right: 0;">
     <div class="col-2">
       <div class="grid">
-        <header class="header" style="margin-bottom : 100px; position : fixed; width: 100%; z-index: 20; background-color: #394263; height: 70px;">
+        <header class="header" style="margin-bottom : 100px; position : fixed; width: 100%; z-index: 20; background-color: #505662; height: 70px;">
           <i class="fas fa-bars header__menu"></i>
           <div class="header__search">
             <input class="header__input" placeholder="Search..." />
           </div>
           <div class="header__avatar">
             <div class="im-prof">
-              <img src="https://i.pinimg.com/736x/27/cd/7f/27cd7f91d768f1e85aa8d7484f303fae.jpg" alt="" style="height: 40px; width: 40px; border-radius: 50%;">
+              <img src="images/icon_profile.png" alt="" style="height: 40px; width: 40px; border-radius: 50%; margin-top: -2px; margin-left: -2px">
 
             </div>
             <div class="dropdown">
               <ul class="dropdown__list">
-                <li class="dropdown__list-item">
+                <li class="dropdown__list-item" style="display:none">
                   <span class="dropdown__icon"><i class="far fa-user"></i></span>
                   <span class="dropdown__title">Mon compte</span>
                 </li>
-                <li class="dropdown__list-item">
+                <li class="dropdown__list-item" onclick="deconnexion()">
                   <span class="dropdown__icon"><i class="fas fa-sign-out-alt"></i></span>
                   <span class="dropdown__title">Se deconnecter</span>
                 </li>
@@ -828,8 +834,8 @@
 
         <aside class="sidenav" style="z-index: 100; position: fixed;">
           <div class="sidenav__brand" style="padding: 10px; height: 70px;">
-            <div class="logo">
-              <img src="https://img.freepik.com/vecteurs-premium/caricature-batiments-etat-reel_18591-40701.jpg?w=2000" style="height: 50px; width: 50px; border-radius: 50%;" alt="logo">
+            <div class="logo" >
+              <img src="images/cometh.png" style="height: 50px; width: 50px; border-radius: 50%;" alt="logo">
             </div>
 
             <a class="sidenav__brand-link" href="#">COMETH<span class="text-light" style="font-size: small;"> Outils</span></a>
@@ -866,7 +872,7 @@
 </body>
 
 <script src="js/user.js"></script>
-
+<script src="js/login.js"></script>
 
 <footer>
   </footer-->
